@@ -19,10 +19,10 @@ log = create_logger(app)
 
 # 環境変数取得
 CHANNEL_ACCESS_TOKEN = os.environ["CHANNEL_ACCESS_TOKEN"]
-CHANNEK_SECRET = os.environ["CAHNNEL_SECRET"]
+CHANNEL_SECRET = os.environ["CHANNEL_SECRET"]
 
 line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
-handler = WebhookHandler(CHANNEK_SECRET)
+handler = WebhookHandler(CHANNEL_SECRET)
 
 # アプリケーション本体をopenすると実効
 
