@@ -38,10 +38,10 @@ def get_message(message):
         url = class_hrefs["休講"]
     elif message in ["補講", "ほこう"]:
         url = class_hrefs["補講"]
-    elif message in ["教室", "きょうしつ"]:
+    elif message in ["教室", "きょうしつ", "教室変更"]:
         url = class_hrefs["教室"]
     else:
-        return "すみません\nメッセージを送る時は\n休講、補講、教室\nのどれかを送ってください"
+        return "すみません\nメッセージを送る時は\n休講、補講、教室変更\nのどれかを送ってください"
     url = "https://mobile.matsuyama-u.jp/mbl/" + url
     today_url = get_today_url(url)
     if today_url.split('=')[-1] == datetime.date.today().strftime('%Y%m%d'):
