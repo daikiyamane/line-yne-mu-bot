@@ -16,7 +16,7 @@ def get_urls():
     body = bsObj.find('body')
     atags = body.find_all('a')
     hrefs = [elem.get('href') for elem in atags]
-    class_hrefs = dict(休講=hrefs[0], 補講=hrefs[2], 変更=hrefs[4])
+    class_hrefs = dict(休講=hrefs[0], 補講=hrefs[2], 教室=hrefs[4])
     return class_hrefs
 
 # 今日のurl
@@ -38,10 +38,10 @@ def get_message(message):
         url = class_hrefs["休講"]
     elif message == "補講":
         url = class_hrefs["補講"]
-    elif message == "変更":
-        url = class_hrefs["変更"]
+    elif message == "教室":
+        url = class_hrefs["教室"]
     else:
-        return "すみません\nメッセージを送る時は、休講、補講、変更のどれかを送ってください"
+        return "すみません\nメッセージを送る時は\n休講、補講、教室\nのどれかを送ってください"
     url = "https://mobile.matsuyama-u.jp/mbl/" + url
     today_url = get_today_url(url)
     if today_url.split('=')[-1] == datetime.date.today().strftime('%Y%m%d'):
