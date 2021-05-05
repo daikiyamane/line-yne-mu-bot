@@ -34,11 +34,11 @@ def get_today_url(url):
 
 def get_message(message):
     class_hrefs = get_urls()
-    if message == "休講":
+    if message in ["休講", "休講", "きゅうこう"]:
         url = class_hrefs["休講"]
-    elif message == "補講":
+    elif message in ["補講", "ほこう"]:
         url = class_hrefs["補講"]
-    elif message == "教室":
+    elif message in ["教室", "きょうしつ"]:
         url = class_hrefs["教室"]
     else:
         return "すみません\nメッセージを送る時は\n休講、補講、教室\nのどれかを送ってください"
