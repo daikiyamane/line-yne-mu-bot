@@ -35,11 +35,11 @@ def get_today_url(url):
 def get_message(message):
     class_hrefs = get_urls()
     if message == "休講":
-        url = class_hrefs[0]
+        url = class_hrefs["休講"]
     elif message == "補講":
-        url = class_hrefs[1]
+        url = class_hrefs["補講"]
     elif message == "変更":
-        url = class_hrefs[2]
+        url = class_hrefs["変更"]
     else:
         return "すみません\nメッセージを送る時は、休講、補講、変更のどれかを送ってください"
     url = "https://mobile.matsuyama-u.jp/mbl/" + url
