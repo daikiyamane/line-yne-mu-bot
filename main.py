@@ -14,7 +14,7 @@ from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage
 )
 
-app = False(__name__)
+app = Flask(__name__)
 log = create_logger(app)
 
 # 環境変数取得
