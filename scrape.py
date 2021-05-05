@@ -34,7 +34,7 @@ def get_today_url(url):
 
 def get_message(message):
     class_hrefs = get_urls()
-    if message in ["休講", "休講", "きゅうこう"]:
+    if message in ["休講", "休校", "きゅうこう"]:
         url = class_hrefs["休講"]
     elif message in ["補講", "ほこう"]:
         url = class_hrefs["補講"]
