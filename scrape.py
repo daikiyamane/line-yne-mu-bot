@@ -15,7 +15,7 @@ def get_urls():
     bsObj = BeautifulSoup(res.text, 'html.parser')
     body = bsObj.find('body')
     atags = body.find_all('a')
-    hrefs = [elem.get('href') for elem in atags.find_all('a')]
+    hrefs = [elem.get('href') for elem in atags]
     class_hrefs = dict(休講=hrefs[0], 補講=hrefs[2], 変更=hrefs[4])
     return class_hrefs
 
