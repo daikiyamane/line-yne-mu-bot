@@ -56,9 +56,11 @@ def get_message(message):
         script.decompose()
 
     text = bsObj.get_text()
+    print(text)
 
     # 空白で区切る
     lines = [line.strip() for line in text.splitlines()]
+    print(lines)
 
     text = "\n".join(line for line in lines if line)
     return text + "\nhttps://mobile.matsuyama-u.jp/"
