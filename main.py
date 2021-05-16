@@ -37,9 +37,10 @@ def hello_world():
 
 @app.route("/callback", methods=['POST'])
 def callback():
+    start = time()
     signature = request.headers['X-Line-Signature']
 
-    # get request boby as text
+    # get request body as text
     body = request.get_data(as_text=True)
     log.info("Request body: " + body)
 
@@ -48,6 +49,8 @@ def callback():
         handler.handle(body, signature)
     except InvalidSignatureError:
         abort(400)
+    elapsed_time = time() - start
+    print("elapsed_time:{0}".format(elapsed_time) + "[sec]")
     return 'OK'
 
 # メッセージ受信時のイベント
