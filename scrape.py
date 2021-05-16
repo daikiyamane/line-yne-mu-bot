@@ -63,4 +63,5 @@ def get_message(message):
     print(lines)
 
     text = "\n".join(line for line in lines if line)
+    print(text)
     return text + "\nhttps://mobile.matsuyama-u.jp/"
