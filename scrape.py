@@ -40,6 +40,8 @@ def get_message(message):
         url = class_hrefs["補講"]
     elif message in ["教室", "きょうしつ", "教室変更"]:
         url = class_hrefs["教室"]
+    elif message in ["お問合せ", "お問い合わせ"]:
+        return "お問い合わせはこちらから!\nhttps://twitter.com/Koho_chan_"
     else:
         return "すみません\nメッセージを送る時は\n休講、補講、教室変更\nのどれかを送ってください"
     url = "https://mobile.matsuyama-u.jp/mbl/" + url

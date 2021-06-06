@@ -64,7 +64,7 @@ def handle_message(event):
         TextSendMessage(text=sc.get_message(event.message.text))
     )
     elapsed_time = time() - start
-    print("elapsed_time:{0}".format(elapsed_time) + "[sec]")
+    print("elapsed_time:{0}".format(elapsed_time) + "[秒]")
 
 
 if __name__ == "__main__":
