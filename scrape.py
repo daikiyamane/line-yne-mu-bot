@@ -35,6 +35,7 @@ def get_today_url(url):
 def get_message(message):
     class_hrefs = get_urls()
     messages = message.split()
+    texts = []
     for m in messages:
         if m in ["休講", "休校", "きゅうこう"]:
             url = class_hrefs["休講"]
@@ -68,4 +69,5 @@ def get_message(message):
 
         text = "\n".join(line for line in lines if line)
         print(text)
-        return text + "\nhttps://mobile.matsuyama-u.jp/"
+        texts.append(text + "\nhttps://mobile.matsuyama-u.jp/")
+    return texts
