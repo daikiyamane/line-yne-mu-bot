@@ -63,7 +63,7 @@ def handle_message(event):
     texts.append(TextMessage(text=sc.get_message(event.message.text)))
     line_bot_api.reply_message(
         event.reply_token,
-        texts
+        message=texts
     )
     elapsed_time = time() - start
     print("elapsed_time:{0}".format(elapsed_time) + "[秒]")
