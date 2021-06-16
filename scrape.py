@@ -46,26 +46,26 @@ def get_message(message):
             return "お問い合わせはこちらから!\nhttps://twitter.com/Koho_chan_"
         else:
             return "すみません\nメッセージを送る時は\n休講、補講、教室変更\nのどれかを送ってください"
-    url = "https://mobile.matsuyama-u.jp/mbl/" + url
-    today_url = get_today_url(url)
-    if today_url.split('=')[-1] == datetime.date.today().strftime('%Y%m%d'):
-        print("date ok!!")
-    else:
-        return "今日の{}情報はありません。".format(message)
-    res = requests.get(today_url)
-    bsObj = BeautifulSoup(res.text, 'html.parser')
+        url = "https://mobile.matsuyama-u.jp/mbl/" + url
+        today_url = get_today_url(url)
+        if today_url.split('=')[-1] == datetime.date.today().strftime('%Y%m%d'):
+            print("date ok!!")
+        else:
+            return "今日の{}情報はありません。".format(message)
+        res = requests.get(today_url)
+        bsObj = BeautifulSoup(res.text, 'html.parser')
 
-    # 不要なものを削除
-    for script in bsObj(["script", "style", "title", "a"]):
-        script.decompose()
+        # 不要なものを削除
+        for script in bsObj(["script", "style", "title", "a"]):
+            script.decompose()
 
-    text = bsObj.get_text()
-    print(text)
+        text = bsObj.get_text()
+        print(text)
 
-    # 空白で区切る
-    lines = [line.strip() for line in text.splitlines()]
-    print(lines)
+        # 空白で区切る
+        lines = [line.strip() for line in text.splitlines()]
+        print(lines)
 
-    text = "\n".join(line for line in lines if line)
-    print(text)
-    return text + "\nhttps://mobile.matsuyama-u.jp/"
+        text = "\n".join(line for line in lines if line)
+        print(text)
+        return text + "\nhttps://mobile.matsuyama-u.jp/"
