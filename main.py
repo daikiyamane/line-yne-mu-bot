@@ -59,9 +59,11 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     start = time()
+    texts = []
+    texts.append(TextMessage(text=sc.get_message(event.message.text)))
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=sc.get_message(event.message.text))
+        texts
     )
     elapsed_time = time() - start
     print("elapsed_time:{0}".format(elapsed_time) + "[秒]")
