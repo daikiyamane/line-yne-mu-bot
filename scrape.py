@@ -34,16 +34,18 @@ def get_today_url(url):
 
 def get_message(message):
     class_hrefs = get_urls()
-    if message in ["休講", "休校", "きゅうこう"]:
-        url = class_hrefs["休講"]
-    elif message in ["補講", "ほこう"]:
-        url = class_hrefs["補講"]
-    elif message in ["教室", "きょうしつ", "教室変更"]:
-        url = class_hrefs["教室"]
-    elif message in ["お問合せ", "お問い合わせ"]:
-        return "お問い合わせはこちらから!\nhttps://twitter.com/Koho_chan_"
-    else:
-        return "すみません\nメッセージを送る時は\n休講、補講、教室変更\nのどれかを送ってください"
+    messages = message.split()
+    for m in range in messages:
+        if m in ["休講", "休校", "きゅうこう"]:
+            url = class_hrefs["休講"]
+        elif m in ["補講", "ほこう"]:
+            url = class_hrefs["補講"]
+        elif m in ["教室", "きょうしつ", "教室変更"]:
+            url = class_hrefs["教室"]
+        elif m in ["お問合せ", "お問い合わせ"]:
+            return "お問い合わせはこちらから!\nhttps://twitter.com/Koho_chan_"
+        else:
+            return "すみません\nメッセージを送る時は\n休講、補講、教室変更\nのどれかを送ってください"
     url = "https://mobile.matsuyama-u.jp/mbl/" + url
     today_url = get_today_url(url)
     if today_url.split('=')[-1] == datetime.date.today().strftime('%Y%m%d'):
