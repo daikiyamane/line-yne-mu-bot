@@ -69,5 +69,6 @@ def get_message(message):
 
         text = "\n".join(line for line in lines if line)
         print(text)
-        texts.append(text + "\nhttps://mobile.matsuyama-u.jp/")
+        texts.append({type: "text", text: text +
+                     "\nhttps://mobile.matsuyama-u.jp/"})
     return texts
