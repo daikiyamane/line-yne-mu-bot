@@ -71,3 +71,7 @@ def get_message(message):
         print(text)
         texts.append(text + "\nhttps://mobile.matsuyama-u.jp/")
     return texts
+
+
+def is_str(v):
+    return type(v) is str
