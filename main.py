@@ -61,11 +61,12 @@ def handle_message(event):
     start = time()
     texts = sc.get_message(event.message.text)
     if sc.is_str(texts):
-        line_bot_api.reply_message(event.reply_token, TextMessage(text=texts))
+        line_bot_api.reply_message(
+            event.reply_token, TextSendMessage(text=texts))
     else:
         x = []
         for t in texts:
-            x.append(TextMessage(text=t))
+            x.append(TextSendMessage(text=t))
         line_bot_api.reply_message(
             event.reply_token,
             x
