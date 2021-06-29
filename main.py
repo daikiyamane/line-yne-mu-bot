@@ -59,7 +59,8 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     start = time()
-    texts = sc.get_message(event.message.text)
+    #texts = sc.get_message(event.message.text)
+    texts = "広報ちゃんβは広報ちゃんに移行しました。\nこれからはこちらをご利用ください\n\nhttps://lin.ee/2bnkBnx"
     if sc.is_str(texts):
         line_bot_api.reply_message(
             event.reply_token, TextSendMessage(text=texts))
