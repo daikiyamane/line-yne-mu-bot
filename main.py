@@ -71,7 +71,7 @@ def handle_message(event):
     rich_menu_id = line_bot_api.create_rich_menu(rich_menu=rich_menu_to_create)
     print(rich_menu_id)
     with open(path, 'rb') as f:
-        line_bot_api.set_rich_menu_image(rich_menu_id, "image/jpeg", f)
+        line_bot_api.set_rich_menu_image(rich_menu_id, "image/png", f)
     start = time()
   # texts = sc.get_message(event.message.text)
     texts = "広報ちゃんβは広報ちゃんに移行しました。\nこれからはこちらをご利用ください\n\nhttps://lin.ee/2bnkBnx\n\n{}".format(rich_menu_id)
