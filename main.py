@@ -64,7 +64,7 @@ def handle_message(event):
         name="Nice richmenu",
         chat_bar_text="Tap here",
         areas=[RichMenuArea(
-            bounds=RichMenuBounds(x=0, y=0, width=2500, height=843),
+            bounds=RichMenuBounds(x=0, y=0, width=1200, height=810),
             action=URIAction(label='Go to line.me', uri='https://line.me'))]
     )
 
