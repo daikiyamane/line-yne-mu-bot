@@ -12,7 +12,7 @@ from linebot.exceptions import (
 )
 # lineでのイベント取得
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage
+    MessageEvent, TextMessage, TextSendMessage, RichMenu, RichMenuSize, RichMenuArea, RichMenuBounds, URIAction
 )
 
 app = Flask(__name__)
@@ -58,9 +58,21 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    rich_menu_to_create = RichMenu(
+        size=RichMenuSize(width=2500, height=843),
+        selected=False,
+        name="Nice richmenu",
+        chat_bar_text="Tap here",
+        areas=[RichMenuArea(
+            bounds=RichMenuBounds(x=0, y=0, width=2500, height=843),
+            action=URIAction(label='Go to line.me', uri='https://line.me'))]
+    )
+
+    rich_menu_id = line_bot_api.create_rich_menu(rich_menu=rich_menu_to_create)
+    print(rich_menu_id)
     start = time()
-    #texts = sc.get_message(event.message.text)
-    texts = "広報ちゃんβは広報ちゃんに移行しました。\nこれからはこちらをご利用ください\n\nhttps://lin.ee/2bnkBnx"
+  # texts = sc.get_message(event.message.text)
+    texts = "広報ちゃんβは広報ちゃんに移行しました。\nこれからはこちらをご利用ください\n\nhttps://lin.ee/2bnkBnx\n\n{}".format(rich_menu_id)
     if sc.is_str(texts):
         line_bot_api.reply_message(
             event.reply_token, TextSendMessage(text=texts))
